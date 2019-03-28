@@ -8,8 +8,12 @@ function themeConfig($form) {
     $form->addInput($bkimg);
     $bkcolor = new Typecho_Widget_Helper_Form_Element_Text('bkcolor', NULL, NULL, _t('背景颜色') , _t('如果没有想要的背景就换成纯色吧'));
     $form->addInput($bkcolor);
-    $beian = new Typecho_Widget_Helper_Form_Element_Text('beian', NULL, NULL, _t('备案号') , _t('没备案当我没说'));
-    $form->addInput($beian);
+    $icpbeian = new Typecho_Widget_Helper_Form_Element_Text('icpbeian', NULL, NULL, _t('工信部备案号') , _t('工信部无备案不填'));
+    $form->addInput($icpbeian);
+    $gajbeian = new Typecho_Widget_Helper_Form_Element_Text('gajbeian', NULL, NULL, _t('公安部备案号') , _t('公安部无备案不填'));
+    $form->addInput($gajbeian);
+    $gajbeianurl = new Typecho_Widget_Helper_Form_Element_Text('gajbeianurl', NULL, _t('#'), _t('公网安备链接') , _t('公安部无备案不填'));
+    $form->addInput($gajbeianurl);
     $builtTime = new Typecho_Widget_Helper_Form_Element_Text('builtTime', NULL, NULL, _t('运行时间') , _t('格式YYYY-MM-DD'));
     $form->addInput($builtTime);
     $animateTime = new Typecho_Widget_Helper_Form_Element_Text('animateTime', NULL, NULL, _t('动画过渡时间') , _t('格式 1s'));
@@ -24,6 +28,11 @@ function themeConfig($form) {
         '0' => _t('啥东西，不要')
     ) , '0', _t('又拍云联盟开关') , _t('默认为关闭'));
     $form->addInput($enableUpyun);
+    $enableAliyun = new Typecho_Widget_Helper_Form_Element_Radio('enableAliyun', array(
+        '1' => _t('阿里云LOGO') ,
+        '0' => _t('辣鸡，不要')
+    ) , '0', _t('阿里云LOGO开关') , _t('默认为关闭'));
+    $form->addInput($enableAliyun);
     $enableOpac = new Typecho_Widget_Helper_Form_Element_Radio('enableOpac', array(
         '1' => _t('喜欢') ,
         '0' => _t('不要，快瞎了')

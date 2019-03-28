@@ -21,13 +21,18 @@
     </div>
 <?php endwhile; ?>
 <div id="pages" class="clear">
-  <?php $this->pageLink('更多 >','next'); ?>
-  <?php $this->pageLink('< 返回','prev'); ?>
+  <?php $this -> pageNav('←', '→'); ?>
 </div>
   </div>
 </div>
-
-
-
-
+<?php
+/*** 
+<div id="pages" class="clear">
+  <?php $this->pageLink('更多&raquo;','next'); ?>
+  <?php $this->pageLink('&laquo;返回','prev'); ?>
+</div>
+  </div>
+</div>
+*/
+?>
   <?php $this->need('footer.php'); ?>

@@ -2,9 +2,21 @@
 <head>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width"/>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="theme-color" content="#66CCFF"/>
+	<!-- Add to home screen -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="凯の秘密基地">
+	<meta name="msapplication-TileImage" content="https://lvmoo.com/icons/icon-144x144.png">
+	<link id="favicon" rel="icon" href="https://lvmoo.com/icons/favicon.ico"  type="image/vnd.microsoft.icon">
+	<link rel="apple-touch-icon" href="<?php $this->options->favicon(); ?>">
+	<meta name="msapplication-TileColor" content="#66CCFF">
 	<!-- DNS预解析 -->
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link rel="dns-prefetch" href="https://cdn.lvmoo.com/" />
 	<link rel="dns-prefetch" href="//cdn.bootcss.com">
 	<link rel="dns-prefetch" href="//i.loli.net">
+	<link rel='dns-prefetch' href='//s.w.org'>
 
 	<title><?php $this->archiveTitle(' &raquo; ', '', ' | '); ?><?php $this->options->title(); ?></title>
 
@@ -137,18 +149,14 @@
 
 	</style>
 
-	<link rel="icon" type="image/png" href="<?php $this->options->favicon(); ?>">
-	<link href="<?php $this->options->favicon(); ?>" rel="icon">
-	<link rel='dns-prefetch' href='//s.w.org'>
-	<link rel="apple-touch-icon-precomposed" href="<?php $this->options->favicon(); ?>">
 	<?php $this->header(); ?>
-
 
 </head>
 
 <body ontouchstart>
 	<!-- 头部/pjax -->
 	<div id="pjax-container">
+	<?php $this->header('commentReply=1&description=0&keywords=0&generator=0&template=0&pingback=0&xmlrpc=0&wlw=0&rss2=0&rss1=0&antiSpam=0&atom=0'); ?>
 		<div id="header">
 			<div id="header-container">
 				<h2><?php $this->options->title(); ?></h2>
@@ -165,5 +173,5 @@
 				</div>
 			</div>
 		</div>
-
-		<div id="M">
+		
+	<div id="M">

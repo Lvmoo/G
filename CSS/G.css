@@ -9,7 +9,7 @@
  /**
   * 基本样式
   */
-*{
+  *{
 	font-family: 'Josefin Sans Light', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "'Hiragino Sans GB", STHeiti, "Microsoft Yahei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
 	text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
 	-webkit-appearance:none;
@@ -24,10 +24,10 @@ body {
 }
 a:link{
 	text-decoration: none;
-	color: #07f;
+	color: #999;
 }
 a:visited{
-	color:#07f;
+	color:#6cf;
 }
 html::before{
 	content: '';
@@ -278,7 +278,7 @@ html::-webkit-scrollbar-thumb,html *::-webkit-scrollbar-thumb {
 	float: right;
 }
 .next,.prev {
-	padding: .5rem 1.6rem;
+	/* padding: .5rem 1.6rem; */
 	border-radius: 100rem;
 	display: inline-block;
 	opacity: 1;
@@ -612,20 +612,34 @@ ruby>rt {
 	margin: 20px auto;
 }
 .page-navigator {
-	display:block;
-	margin-left: -40px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    color: #aaa;
 }
 .page-navigator li{
-	display: none;
+	display: inline-block;
+    float: none;
+    margin: .5rem;
 }
 .page-navigator li.prev, .page-navigator li.next{
 	list-style:none;
 	display:inline-block;
 	margin:5px 0
 }
-.page-navigator li a{
-	color: #333;
-	text-decoration: none;
+.page-navigator a{
+	line-height: 2rem;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+.page-navigator .current {
+    border-radius: 50%;
+    background: #999;
+}
+.current a {
+    color: #fff !important;
 }
 
 .comment-title a,[title=Logout] {
@@ -648,6 +662,11 @@ ruby>rt {
 }
 #comment-form {
 	text-align: center;
+}
+#comment-form p {
+	text-align: left;
+	color: #ff00002b;
+	font-size: 15px;
 }
 #comment-form input {
 	height: 2rem;
@@ -691,6 +710,10 @@ ruby>rt {
 	height: 150px;
 	width: 100%;
 	resize: none;
+	background-image: url(//cdn.lvmoo.com/images/%E6%B4%9B%E5%A4%A9%E4%BE%9D.png);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
 }
 #comment-form button {
 	font-size:14px;
@@ -779,6 +802,14 @@ ol.comment-list ol {
 }
 .comment-by-author {
 	position:relative
+}
+
+.comments-title {
+	font-size: 18px;
+	color: #6cf;
+	text-align:center;
+	padding-bottom: .7em;
+	font-weight: 800;
 }
 
 /**

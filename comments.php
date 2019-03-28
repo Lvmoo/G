@@ -53,22 +53,31 @@ echo $commentClass;
 
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
+    
+    <div class="comments-title"><?php $this->commentsNum(_t('文章暂时没人评论TvT'), _t('只有一个评论呢QAQ'), _t('有 %d 个关于文章的看法啦')); ?></div>
+    <?php if ($comments->have()): ?>
+        <?php $comments->listComments(); ?>
+        <?php $comments->pageNav('←', '→'); ?>
+    <?php endif; ?>
+
     <div class="comments-header" id="<?php $this->respondId(); ?>" >
         <?php if($this->allow('comment')): ?>
-
-        <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form" class="clear">
-          <h3 class="comment-title">🎯回复  <?php $comments->cancelReply('/ 取消回复'); ?></h3>
-            <?php if(!$this->user->hasLogin()): ?>
-    			<input type="text" name="author" id="author" class="text" value="<?php $this->remember('author'); ?>" required placeholder="Name" />
-    			<input type="email" name="mail" id="mail" class="text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> placeholder="E-mail"  />
-    			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
+        <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form" class="clear">        
+          <h3 class="comment-title">❤评论的人最可爱  <?php $comments->cancelReply('/ 取消回复'); ?></h3>
+          
+            <?php if($this->user->hasLogin()): ?>
+            <p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a></p>
+            <?php else: ?>
+    			<input type="text" name="author" id="author" class="text" value="<?php $this->remember('author'); ?>" required placeholder="昵称 *" />
+    			<input type="email" name="mail" id="mail" class="text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> placeholder="邮箱 *"  />
+    			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('网址'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
             <?php endif; ?>
-                <textarea name="text" id="textarea" class="OwO-textarea textarea" required placeholder="开始你的表演"><?php $this->remember('text'); ?></textarea>
+                <textarea name="text" id="textarea" class="OwO-textarea textarea" required placeholder="世事如书我偏爱你这一句"><?php $this->remember('text'); ?></textarea>
                 <div class="clear">
                   <div class="OwO-logo" onclick="OwO_show()">
                    <span>(OωO)</span>
                   </div>
-                  <button type="submit" class="submit"><?php _e('🚀发射'); ?></button>
+                  <button type="submit" class="submit"><?php _e('📝写好啦'); ?></button>
                 </div>
 
                 <div id="OwO-container"><?php  $this->need('owo.php'); ?></div>
@@ -77,9 +86,6 @@ echo $commentClass;
         <?php endif; ?>
     </div>
 
-    <?php if ($comments->have()): ?>
-        <?php $comments->listComments(); ?>
-        <?php $comments->pageNav('<上一页', '下一页>'); ?>
-    <?php endif; ?>
+
     
 </div>
