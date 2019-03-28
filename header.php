@@ -97,6 +97,7 @@
 		}
 		html::before{
 			  background-image: url(<?php $this->options->bkimg(); ?>);
+			  opacity:0.3;
 		}
 
 
