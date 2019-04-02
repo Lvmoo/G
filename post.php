@@ -14,11 +14,7 @@
 	</div>
 	<div id="post-content">
 		<div id="post-content-article">
-			<?php
-			$content = GetOriginalContent($this->cid);
-
-			emotionContent($content,$this->options->themeUrl);
-			 ?>
+		<?php echo $content = str_replace("wwww.lvmoo.com/usr/uploads","cdn.lvmoo.com/usr/uploads",$this->content); ?>
 		</div>
 	</div>
 
